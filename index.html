@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d3a">
+  <title>FISU | Federation of Ifaki Students' Union</title>
+  <meta name="description" content="Official website of the Federation of Ifaki Students' Union.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="FISU home">
+      <span class="brand-mark">F</span>
+      <span><strong>FISU</strong><small>Federation of Ifaki Students' Union</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <nav id="mainNav">
+      <a href="#about">About</a><a href="#leadership">Leadership</a><a href="#news">News</a>
+      <a href="#projects">Projects</a><a href="#resources">Resources</a><a href="#contact">Contact</a>
+      <a class="nav-admin" href="#admin">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">THE OFFICIAL PLATFORM OF FISU</p>
+        <h1>One Union.<br><span>One Voice.</span><br>One Ifaki.</h1>
+        <p class="hero-copy">Representing, connecting and advancing the interests of Ifaki students everywhere.</p>
+        <div class="hero-actions"><a class="btn btn-gold" href="#about">Discover FISU</a><a class="btn btn-outline" href="#news">Latest updates</a></div>
+      </div>
+      <div class="hero-seal" aria-hidden="true"><div class="seal-inner"><b>FISU</b><span>UNITY · SERVICE · DEVELOPMENT</span><i>✦</i></div></div>
+    </section>
+
+    <section class="ticker"><span>IN SOLIDARITY LIES OUR STRENGTH</span><span>✦</span><span>EDUCATION · REPRESENTATION · DEVELOPMENT</span></section>
+
+    <section class="section intro" id="about">
+      <div class="section-heading"><p class="eyebrow">WHO WE ARE</p><h2>A union built on <em>purpose.</em></h2></div>
+      <div class="intro-copy"><p>The Federation of Ifaki Students' Union (FISU) is a platform for unity, representation, advocacy and the advancement of students of Ifaki-Ekiti.</p><p>Through purposeful leadership, educational support, community engagement and student-centred initiatives, FISU works to create opportunities and strengthen the bond among Ifaki students.</p></div>
+    </section>
+
+    <section class="section dark-section" id="leadership">
+      <div class="section-heading"><p class="eyebrow">THE UNION</p><h2>Leadership & <em>structure</em></h2><p class="section-sub">Meet the people serving the union. Official profiles can be updated through the admin dashboard.</p></div>
+      <div class="content-grid" id="leadershipGrid"><div class="empty-state">Leadership profiles will appear here when published.</div></div>
+    </section>
+
+    <section class="section" id="news">
+      <div class="section-heading split-heading"><div><p class="eyebrow">WHAT'S HAPPENING</p><h2>News & <em>announcements</em></h2></div><p class="section-sub">Official notices, statements and updates from the union.</p></div>
+      <div class="content-grid" id="newsGrid"><div class="empty-state">News and announcements will appear here.</div></div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="section-heading"><p class="eyebrow">ACTION & IMPACT</p><h2>Projects that <em>move us forward.</em></h2><p class="section-sub">Explore FISU's programmes, interventions and community initiatives.</p></div>
+      <div class="content-grid" id="projectsGrid"><div class="empty-state">Project updates will appear here.</div></div>
+    </section>
+
+    <section class="section resources-section" id="resources">
+      <div class="section-heading"><p class="eyebrow">STUDENT SUPPORT</p><h2>Opportunities & <em>resources</em></h2></div>
+      <div class="content-grid" id="resourcesGrid"><div class="empty-state">Scholarships, bursaries, documents and student resources will appear here.</div></div>
+    </section>
+
+    <section class="cta-band"><div><p class="eyebrow">STRONGER TOGETHER</p><h2>Be part of the <em>advancement.</em></h2><p>Stay informed. Get involved. Make an impact.</p></div><a class="btn btn-gold" href="#contact">Connect with FISU</a></section>
+
+    <section class="section contact-section" id="contact">
+      <div><p class="eyebrow">GET IN TOUCH</p><h2>Connect with <em>the union.</em></h2><p>For enquiries, partnerships, student support and official correspondence, reach the FISU Secretariat.</p></div>
+      <div class="contact-card"><h3>FISU Secretariat</h3><p>Ifaki-Ekiti, Ekiti State, Nigeria</p><p><a href="mailto:ifakistudentunion61@gmail.com">ifakistudentunion61@gmail.com</a></p><p class="muted">Official communications should be made through verified FISU channels.</p></div>
+    </section>
+
+    <section class="admin-section" id="admin">
+      <div class="admin-wrap">
+        <div class="section-heading"><p class="eyebrow">RESTRICTED ACCESS</p><h2>FISU <em>Admin Portal</em></h2><p class="section-sub">Sign in with your authorised FISU administrator account to manage website content.</p></div>
+        <div class="admin-panel" id="authPanel">
+          <form id="loginForm" class="login-form">
+            <label>Email address<input type="email" id="loginEmail" autocomplete="username" required placeholder="Your admin email"></label>
+            <label>Password<input type="password" id="loginPassword" autocomplete="current-password" required placeholder="Your password"></label>
+            <button class="btn btn-gold" type="submit">Sign in</button>
+            <p class="form-message" id="loginMessage" role="status"></p>
+          </form>
+        </div>
+        <div class="admin-panel hidden" id="dashboardPanel">
+          <div class="dashboard-top"><div><span class="eyebrow">SIGNED IN</span><h3 id="adminIdentity">Administrator</h3><p id="adminRole" class="muted"></p></div><button class="btn btn-outline-dark" id="signOutBtn">Sign out</button></div>
+          <div class="dashboard-grid">
+            <form id="contentForm" class="content-form">
+              <h3 id="editorHeading">Add website content</h3>
+              <input type="hidden" id="contentId">
+              <label>Section<select id="contentSection" required><option value="news">News & announcements</option><option value="leadership">Leadership</option><option value="projects">Projects & impact</option><option value="resources">Scholarships & resources</option></select></label>
+              <label>Title<input id="contentTitle" required maxlength="180" placeholder="Enter a title"></label>
+              <label>Short description / content<textarea id="contentBody" rows="5" required placeholder="Write the information to display on the website"></textarea></label>
+              <label>Image URL <span class="muted">(optional; use a publicly accessible image link)</span><input id="contentImage" type="url" placeholder="https://..."></label>
+              <label>Link URL <span class="muted">(optional)</span><input id="contentLink" type="url" placeholder="https://..."></label>
+              <label class="check-label"><input type="checkbox" id="contentPublished" checked> Publish this content on the website</label>
+              <div class="form-actions"><button class="btn btn-gold" type="submit" id="saveContentBtn">Save content</button><button class="btn btn-quiet" type="button" id="resetFormBtn">Clear</button></div>
+              <p class="form-message" id="editorMessage" role="status"></p>
+            </form>
+            <div class="content-manager"><div class="manager-heading"><h3>Manage content</h3><button class="btn btn-quiet" id="refreshBtn" type="button">Refresh</button></div><div id="managedContent" class="managed-content">Your content will appear here.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">F</span><span><strong>FISU</strong><small>Federation of Ifaki Students' Union</small></span></a><p>In solidarity lies our strength.</p><small>© <span id="year"></span> Federation of Ifaki Students' Union. All rights reserved.</small></footer>
+</body>
+</html>
