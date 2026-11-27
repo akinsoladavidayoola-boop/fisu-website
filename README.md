@@ -11,8 +11,8 @@ This is an editable, mobile-friendly website starter for the Federation of Ifaki
 
 ## 1. Connect your Supabase project
 1. Open `config.js` in a text editor.
-2. Replace `PASTE_YOUR_SUPABASE_PROJECT_URL_HERE` with your Supabase Project URL.
-3. Replace `PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE` with the publishable key (or legacy anon key).
+2. Replace `(https://pezpkbtkmosllflwfxsg.supabase.co/rest/v1/)` with your Supabase Project URL.
+3. Replace `sb_publishable_vIRu3tcG9XBZfzy3pYnRLg_s5jrTN8n` with the publishable key (or legacy anon key).
 4. Save the file.
 
 Only use the public publishable/anon key here. NEVER use the `service_role` key, database password, or secret key in browser code.
